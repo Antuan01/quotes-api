@@ -8,6 +8,10 @@ class HelloWorld(Resource):
     def get(self):
         return {'hello': 'world'}
 
+@app.route("/test")
+def hello_world():
+    return {'test': 'tset'}
+
 api.add_resource(HelloWorld, '/')
 
 if __name__ == '__main__':
