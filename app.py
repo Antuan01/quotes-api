@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_restful import Resource, Api
 from flask import request
+from controllers import author
 
 app = Flask(__name__)
 api = Api(app)
@@ -16,7 +17,9 @@ def quote_from_author(author):
 
 @app.route("/api/authors", methods=["GET", "POST"])
 def handle_authors():
-    if request.method == "POST":
+    if request.method == "GET":
+        res = author.AuthorController.create()
+        print(res)
         return { "authors":["list"] }
     else:
         return { "data": "author created" }
