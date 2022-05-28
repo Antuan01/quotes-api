@@ -18,10 +18,12 @@ def quote_from_author(author):
 @app.route("/api/authors", methods=["GET", "POST"])
 def handle_authors():
     if request.method == "GET":
-        res = author.AuthorController.create()
+        res = author.AuthorController.list()
         print(res)
         return { "authors":["list"] }
     else:
+        res = author.AuthorController.create()
+        print(res)
         return { "data": "author created" }
 
 @app.route("/api/quote/<int:author_id>", methods=["POST"])
