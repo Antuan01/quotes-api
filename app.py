@@ -2,6 +2,7 @@ from flask import Flask
 from flask_restful import Resource, Api
 from flask import request
 from controllers import author
+from controllers import quotes
 
 app = Flask(__name__)
 api = Api(app)
@@ -22,7 +23,7 @@ def handle_authors():
         print(res)
         return { "authors":["list"] }
     else:
-        res = author.AuthorController.create()
+        res = author.AuthorController.create("antuan")
         print(res)
         return { "data": "author created" }
 

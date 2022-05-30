@@ -1,6 +1,6 @@
 
 class AuthorController():
-    def create():
-        return "Created"
+    def create(author):
+        return author
     def list():
         return ["List"]
