@@ -1,0 +1,20 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mariadb:10.9.1-rc-jammy
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: aoeuhtns
+      MARIADB_DATABASE: quotes_db
+      MARIADB_USER: antuan
+      MARIADB_PASSWORD: secret
+
+  adminer:
+    image: adminer
+    restart: always
+    environment:
+      ADMINER_DEFAULT_SERVER: mariadb
+    ports:
+      - 8080:8080
